@@ -1,0 +1,26 @@
+chleb,0,False,0
+mas³o,1,False,1
+ser,1,False,2
+p³atki,2,False,3
+mleko,1,False,4
+makaron,3,False,5
+sos pomidorowy,4,False,6
+m¹ka,3,False,7
+olej,5,False,8
+jajka,1,False,9
+sól,6,False,10
+pieprz,6,False,11
+parówka,7,True,14
+sos pesto,4,False,15
+pierœ z kurczaka,8,True,16
+ziemniaki,9,False,17
+boczek wêdzony,10,True,18
+cebula,9,False,19
+papryka s³odka,6,False,20
+papryka ostra,0,True,21
+ga³ka muszkata³owa,6,False,22
+majeranek,6,False,23
+marchewka,9,False,24
+czosnek,9,False,25
+przyprawa curry,6,False,26
+zio³a prowansalskie,6,False,27

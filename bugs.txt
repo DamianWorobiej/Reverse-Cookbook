@@ -1,0 +1,1 @@
+- wywalenie programu przy wyszukiwaniu dañ wegetariañskich; wyst¹pieñ: 1; przyczyna: nieznana; dodatkowe informacje: przedtem problem z kluczem (IngDict?) przy dodawaniu dania
