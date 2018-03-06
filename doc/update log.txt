@@ -1,0 +1,6 @@
+v 1.1
+
+-Dodano obs³ugê baz danych
+-Powiêkszono niektóre okna, m. in. dodawanie dania i g³ówna funkcjonalnoœæ
+-Dodano alfabetyczne sortowanie list
+-Dodano view modele i prawie ca³kowit¹ implementacjê wzorca MVVC

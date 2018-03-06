@@ -1,0 +1,28 @@
+Dalszy rozwój
+- enter i skróty klawiszowe
+- implementacja bazy danych
+- ikony
+- customowe przyciski
+- czcionki - wielkoœæ, rodzaj(?)
+- ogólnie wiêksze okna, przyciski
+- mniej ascetyczny wyglad okien
+- wyraŸniejszy obszar textboxów (inny kolor t³a?)
+- dodawanie dania - edycja iloœci sk³adnika w samym LV
+- osobna kolekcja i LV z wybranymi sk³adnikami w g³ównej funkcjonalnoœci -> wyszukiwanie po nazwie mo¿e usun¹æ zaznaczone sk³adniki
+
+- wiêksze odseparowanie widoku od view model - g³ównie metody
+
+Do V 1.11
+- wyszukiwanie wegañskich potraw
+- implementacja wyszukiwania dañ bez laktozy
+- zamkniêcie okna po aktualizacjii dania
+- powiêkszenie bazy danych do sensownej wielkoœci
+
+Do V1.04
+
+- dodawanie dania i g³ówna funkcjonalnoœæ - szersze okna
+- dodawanie dania - szerokoœæ LV przy duzym oknie
+- dodawanie sk³adnika - domyœlne zaznaczenie CB
+- dodawanie kategorii - niealfabetyczna lista
+
+

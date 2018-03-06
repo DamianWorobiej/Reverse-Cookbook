@@ -1,0 +1,2 @@
+- b³¹d w DishDetails/FindDish po zamkniêciu DishDetails i wykasowaniu tekstu z textboxa z wyszukiwaniem
+- okno aktualizacji dania nie zamyka siê po aktualizacji dania
