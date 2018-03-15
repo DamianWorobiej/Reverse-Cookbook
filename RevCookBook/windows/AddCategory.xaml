@@ -1,0 +1,40 @@
+﻿<Window x:Class="RCookBookDB.okna.AddCategory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RCookBookDB.okna"
+        mc:Ignorable="d"
+        Title="AddCategory" Height="150" Width="300"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.ColumnSpan="2">
+            <Label Content="Nazwa kategorii"/>
+            <TextBox x:Name="tb_Name" Margin="10,0,10,0">
+                <TextBox.Text>
+                    <Binding Path="Name"/>
+                </TextBox.Text>
+            </TextBox>
+        </StackPanel>
+        <Button x:Name="btn_OK" 
+                Content="Dodaj" 
+                Click="btn_OK_Click"
+                Grid.Row="1"
+                Margin="5,5,5,5"/>
+        <Button x:Name="btn_Anuluj"
+                Content="Anuluj"
+                Click="btn_Anuluj_Click"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="5,5,5,5"/>
+    </Grid>
+</Window>

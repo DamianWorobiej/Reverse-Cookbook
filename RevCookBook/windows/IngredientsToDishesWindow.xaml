@@ -1,0 +1,95 @@
+﻿<Window x:Class="RCookBookDB.IngredientsToDishesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RCookBookDB"
+        mc:Ignorable="d"
+        Title="IngredientsToDishesWindow" Height="500" Width="500"
+        WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+            <!-- <RowDefinition Height="50"/>-->
+        </Grid.RowDefinitions>
+        <Button Content="Zamknij" 
+                Click="Btn_Close" 
+                Margin="5,0,5,10" 
+                Grid.Column="1" 
+                Grid.Row="4"/>
+        <TextBox x:Name="tb_Search"
+                 Grid.Row="1"
+                 Grid.Column="0" 
+                 TextChanged="tb_Search_TextChanged"
+                 Margin="20,0,0,0"/>
+
+
+        <Label Content="Szukaj po nazwie"
+               Grid.Row="0"
+               Grid.Column="0"
+               Margin="20,0,0,0"/>
+
+        <Label Content="Szukaj dań wegetariańskich" Grid.Column="2"/>
+        <CheckBox x:Name="cbox_Vegan" Grid.Row="1" Grid.Column="2" Margin="20,0,0,0"  Checked="cbox_Vegan_Checked"/>
+        <!-- Click="cbox_Vegan_Click"-->
+
+        <Label x:Name="lbl_Ingredients"
+               Content="Składniki"
+               Grid.Row="2"
+               Grid.Column="0"
+               Margin="20,0,0,0"/>
+        <ListView x:Name="IngredientsListView"
+                  Grid.Row="2"
+                  Grid.Column="0"
+                  Grid.RowSpan="2"
+                  Grid.ColumnSpan="1"                 
+                  Margin="20,35,0,20"
+                  ItemsSource="{Binding Path=Ingredients}"
+                  SelectionChanged="IngredientsListView_SelectionChanged">   <!-- SelectionMode="Multiple" -->
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nazwa" Width="auto"
+                                    DisplayMemberBinding="{Binding Name}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Label x:Name="lbl_DishesWithSelectedIngredientsList1"
+               Content="Lista dań zawierających"
+               Grid.Row="2"
+               Grid.Column="2"/>
+        <Label x:Name="lbl_DishesWithSelectedIngredientsList2"
+               Content="wybrane składniki"
+               Grid.Row="2"
+               Grid.Column="2"
+               Margin="0,12,0,0"/>
+        <ListView x:Name="Wybrane"
+                  Grid.Row="2"
+                  Grid.Column="2"
+                  Grid.RowSpan="2"
+                  Grid.ColumnSpan="1"
+                  Margin="0,35,20,20"
+                  ItemsSource="{Binding Path=Dishes}"
+                 SelectionChanged="Wybrane_SelectionChanged">
+            <!--SelectionChanged="{Binding Path=SelectedDish}"-->
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nazwa składnika" Width="auto"
+                                   DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Ilość" Width="60"
+                                    DisplayMemberBinding="{Binding Time}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

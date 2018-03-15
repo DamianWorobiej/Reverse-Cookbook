@@ -1,0 +1,40 @@
+﻿<Window x:Class="RCookBookDB.DishDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RCookBookDB"
+        mc:Ignorable="d"
+        Title="Szczegóły dania" Height="500" Width="300"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="10">
+            <Label Content="Nazwa dania"/>
+            <TextBox x:Name="tb_Name" Text="{Binding Path=DishName}"/>
+
+            <Label Content="Czas przygotowania"/>
+            <TextBox x:Name="tb_Time" Text="{Binding Path=DishTime}"/>
+
+            <Label Content="Lista składników"/>
+
+        </StackPanel>
+        <ListView x:Name="Ingredients" Grid.Row="1" ItemsSource="{Binding Path=DishIngList}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="IngName" Header="Nazwa składnika"
+                                    DisplayMemberBinding="{Binding Path=Key.Name}"/>
+                    <GridViewColumn Header="Ilość"
+                                    DisplayMemberBinding="{Binding Path=Value}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button Grid.Row="2" Content="Zamknij" Click="Btn_Close" Margin="10"/>
+    </Grid>
+</Window>

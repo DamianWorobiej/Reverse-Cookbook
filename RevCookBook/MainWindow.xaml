@@ -1,0 +1,65 @@
+﻿<Window x:Class="RevCookBook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RevCookBook"
+        mc:Ignorable="d"
+        Title="Odwrócona książka kucharska" Height="300" Width="400"
+        WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <Menu Grid.ColumnSpan="8" Margin="0,0,0,0">
+            <MenuItem Header="Składniki">
+                <MenuItem Header="Dodaj składnik" Click="menu_AddIng" />
+                <MenuItem Header="Zaktualizuj składnik" Click="menu_UpdateIng" />
+                <MenuItem Header="Usuń składnik" Click="menu_DeleteIng" />
+            </MenuItem>
+            <MenuItem Header="Dania">
+                <MenuItem Header="Dodaj danie" Click="menu_AddDish"/>
+                <MenuItem Header="Zaktualizuj danie" Click="menu_UpdateDish"/>
+                <MenuItem Header="Usuń danie" Click="menu_DeleteDish"/>
+            </MenuItem>
+            <MenuItem Header="Kategorie składników">
+                <MenuItem Header="Dodaj kategorię" Click="menu_AddCategory"/>
+                <MenuItem Header="Uaktualnij kategorię" Click="menu_UpdateCategory"/>
+
+            </MenuItem>
+
+        </Menu>
+
+        
+        <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="40,40,40,30">
+            <Button x:Name="btn_ViewDishesWithAllIngs" 
+                    Content="Znajdź dania zawierające wszystkie wybrane składniki"
+                   
+                    Margin="0,0,0,10"
+                    Height="40" Click="btn_ViewDishesWithAllIngs_Click"/>
+            <Button x:Name="btn_ViewAllDishesWithSelectedIngs"
+                    Content="Znajdź wszystkie dania zawierające wybrane składniki"
+                    
+                    Margin="0,10,0,10"
+                    Height="40" Click="btn_ViewAllDishesWithSelectedIngs_Click"/>
+            <Button x:Name="btn_FindDishes"
+                    Content="Znajdź dowolne danie"
+                    
+                    Margin="0,10,0,0"
+                    Height="40" Click="btn_FindDishes_Click"/>
+            
+        </StackPanel>
+    </Grid>
+</Window>
