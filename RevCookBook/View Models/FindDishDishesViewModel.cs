@@ -93,7 +93,7 @@ namespace RevCookBook.View_Models
                     catch (Exception e)
                     {
                         ErrorLogHandler.SaveErrorToLog(e);
-                        MessageBox.Show("Wystąpił błąd podczas usuwania dania! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:", "Problem z usuwaniem dania!");
+                        MessageBox.Show("Wystąpił błąd podczas usuwania dania! Raport błędu został zapisanyw folderze " + Paths.SubPathErrorLogs + ". Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:", "Problem z usuwaniem dania!");
                     }
                     break;
                 default:
@@ -138,7 +138,7 @@ namespace RevCookBook.View_Models
             catch (Exception e)
             {
                 ErrorLogHandler.SaveErrorToLog(e);
-                MessageBox.Show("Wystąpił błąd podczas wyszukiwania dań! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:", "Błąd wyszukiwania");
+                MessageBox.Show("Wystąpił błąd podczas wyszukiwania dań! Raport błędu został zapisanyw folderze " + Paths.SubPathErrorLogs + ". Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:", "Błąd wyszukiwania");
             }
             
         }

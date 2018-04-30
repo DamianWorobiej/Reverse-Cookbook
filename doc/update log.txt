@@ -1,3 +1,7 @@
+v1.111
+
+-Dodano do komunikatu b³êdu œcie¿kê, w której zapisywane s¹ raporty
+
 v1.11
 
 -Dodano obs³ugê raportów b³êdów

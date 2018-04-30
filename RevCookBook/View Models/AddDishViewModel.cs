@@ -130,7 +130,7 @@ namespace RevCookBook.View_Models
                 if (e.InnerException != null)
                 {
                     ErrorLogHandler.SaveErrorToLog(e);
-                    MessageBox.Show("Błąd dodawania składnika do dania! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+                    MessageBox.Show("Błąd dodawania składnika do dania! Raport błędu został zapisanyw folderze " + Paths.SubPathErrorLogs + ". Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
                 }
                 else MessageBox.Show(e.Message);
             }
@@ -153,7 +153,7 @@ namespace RevCookBook.View_Models
                 if (e.InnerException != null)
                 {
                     ErrorLogHandler.SaveErrorToLog(e);
-                    MessageBox.Show("Błąd usuwania składnika z dania! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+                    MessageBox.Show("Błąd usuwania składnika z dania! Raport błędu został zapisanyw folderze " + Paths.SubPathErrorLogs + ". Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
                 }
                 else MessageBox.Show(e.Message);
             }
@@ -213,7 +213,7 @@ namespace RevCookBook.View_Models
                 if (e.InnerException != null)
                 {
                     ErrorLogHandler.SaveErrorToLog(e);
-                    MessageBox.Show("Błąd aktualizacji dania! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+                    MessageBox.Show("Błąd aktualizacji dania! Raport błędu został zapisanyw folderze " + Paths.SubPathErrorLogs + ". Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
                 }
                 else MessageBox.Show(e.Message, "Błąd aktualizacji dania");
             }
@@ -263,7 +263,7 @@ namespace RevCookBook.View_Models
                 if (e.InnerException != null)
                 {
                     ErrorLogHandler.SaveErrorToLog(e);
-                    MessageBox.Show("Błąd dodawania dania! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+                    MessageBox.Show("Błąd dodawania dania! Raport błędu został zapisanyw folderze " + Paths.SubPathErrorLogs + ". Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
                 }
                 else MessageBox.Show(e.Message, "Błąd dodawania dania");
             }
@@ -321,7 +321,7 @@ namespace RevCookBook.View_Models
             catch (Exception e)
             {
                 ErrorLogHandler.SaveErrorToLog(e);
-                MessageBox.Show("Wystąpił błąd podczas szukania składników! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+                MessageBox.Show("Wystąpił błąd podczas szukania składników! Raport błędu został zapisanyw folderze " + Paths.SubPathErrorLogs + ". Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
             }
         }
 

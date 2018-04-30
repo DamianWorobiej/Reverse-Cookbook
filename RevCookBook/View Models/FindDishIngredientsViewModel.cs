@@ -85,7 +85,7 @@ namespace RevCookBook.View_Models
                     catch (Exception e)
                     {
                         ErrorLogHandler.SaveErrorToLog(e);
-                        MessageBox.Show("Wystąpił błąd usuwania składnika! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:", "Błąd usuwania składnika");
+                        MessageBox.Show("Wystąpił błąd usuwania składnika! Raport błędu został zapisanyw folderze " + Paths.SubPathErrorLogs + ". Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:", "Błąd usuwania składnika");
                     }
                     break;
                 default:
@@ -112,7 +112,7 @@ namespace RevCookBook.View_Models
             catch (Exception e)
             {
                 ErrorLogHandler.SaveErrorToLog(e);
-                MessageBox.Show("Wystąpił błąd podczas wyszukiwania! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:", "Błąd wyszukiwania");
+                MessageBox.Show("Wystąpił błąd podczas wyszukiwania! Raport błędu został zapisanyw folderze " + Paths.SubPathErrorLogs + ". Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:", "Błąd wyszukiwania");
             }
         }
 

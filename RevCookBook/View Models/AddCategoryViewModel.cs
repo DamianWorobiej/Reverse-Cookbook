@@ -56,7 +56,7 @@ namespace RevCookBook.View_Models
                 if (e.InnerException != null)
                 {
                     ErrorLogHandler.SaveErrorToLog(e);
-                    MessageBox.Show("Błąd dodawania kategorii! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+                    MessageBox.Show("Błąd dodawania kategorii! Raport błędu został zapisany w folderze " + Paths.SubPathErrorLogs + ". Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
                 }
                 else MessageBox.Show(e.Message, "Błąd dodawania kategorii");
             }
@@ -78,7 +78,7 @@ namespace RevCookBook.View_Models
                 if (e.InnerException != null)
                 {
                     ErrorLogHandler.SaveErrorToLog(e);
-                    MessageBox.Show("Błąd uaktualniania kategorii! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+                    MessageBox.Show("Błąd uaktualniania kategorii! Raport błędu został zapisanyw folderze " + Paths.SubPathErrorLogs + ". Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
                 }
                 else MessageBox.Show(e.Message, "Błąd uaktualniania kategorii");
             }

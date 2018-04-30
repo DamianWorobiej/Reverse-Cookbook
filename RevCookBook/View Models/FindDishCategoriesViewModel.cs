@@ -56,7 +56,7 @@ namespace RevCookBook.View_Models
             catch (Exception e)
             {
                 ErrorLogHandler.SaveErrorToLog(e);
-                MessageBox.Show("Wystąpił błąd podczas wyszukiwania kategorii! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:", "Błąd wyszukiwania kategorii");
+                MessageBox.Show("Wystąpił błąd podczas wyszukiwania kategorii! Raport błędu został zapisanyw folderze " + Paths.SubPathErrorLogs + ". Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:", "Błąd wyszukiwania kategorii");
             }
            
         }
