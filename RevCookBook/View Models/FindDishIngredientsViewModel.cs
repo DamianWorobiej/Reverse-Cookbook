@@ -84,7 +84,8 @@ namespace RevCookBook.View_Models
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show(e.Message, "Błąd usuwania składnika");
+                        ErrorLogHandler.SaveErrorToLog(e);
+                        MessageBox.Show("Wystąpił błąd usuwania składnika! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:", "Błąd usuwania składnika");
                     }
                     break;
                 default:
@@ -94,16 +95,24 @@ namespace RevCookBook.View_Models
 
         public void FindItemsWithSetName(string name)
         {
-            if (name == null) Collection = ih.GetObservable();
-            else
+            try
             {
-                var newCollection = ih.GetObservableOfIngredientsWithSetName(name);
-                Collection.Clear();
-
-                foreach (var item in newCollection)
+                if (name == null) Collection = ih.GetObservable();
+                else
                 {
-                    Collection.Add(item);
+                    var newCollection = ih.GetObservableOfIngredientsWithSetName(name);
+                    Collection.Clear();
+
+                    foreach (var item in newCollection)
+                    {
+                        Collection.Add(item);
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+                ErrorLogHandler.SaveErrorToLog(e);
+                MessageBox.Show("Wystąpił błąd podczas wyszukiwania! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:", "Błąd wyszukiwania");
             }
         }
 

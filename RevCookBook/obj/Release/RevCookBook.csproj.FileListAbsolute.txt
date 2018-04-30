@@ -33,3 +33,39 @@ E:\Dysk Google\Visual\RevCookBook\RevCookBook\obj\Release\RevCookBook.csproj.Gen
 E:\Dysk Google\Visual\RevCookBook\RevCookBook\obj\Release\RevCookBook.csproj.CoreCompileInputs.cache
 E:\Dysk Google\Visual\RevCookBook\RevCookBook\obj\Release\RevCookBook.exe
 E:\Dysk Google\Visual\RevCookBook\RevCookBook\obj\Release\RevCookBook.pdb
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\RevCookBook.csprojResolveAssemblyReference.cache
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\MainWindow.g.cs
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\windows\AddCategory.g.cs
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\windows\AddDish.g.cs
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\windows\AddIngredient.g.cs
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\windows\DishDetails.g.cs
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\windows\FindDish.g.cs
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\windows\IngredientsToDishesWindow.g.cs
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\App.g.cs
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\RevCookBook_MarkupCompile.cache
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\RevCookBook_MarkupCompile.lref
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\RevCookBook.exe
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\RevCookBook.pdb
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\bin\Release\RevCookBook.exe.config
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\bin\Release\RevCookBook.exe
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\bin\Release\RevCookBook.pdb
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\bin\Release\EntityFramework.dll
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\bin\Release\EntityFramework.SqlServer.dll
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\bin\Release\System.Data.SQLite.dll
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\bin\Release\System.Data.SQLite.EF6.dll
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\bin\Release\System.Data.SQLite.Linq.dll
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\bin\Release\EntityFramework.xml
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\bin\Release\EntityFramework.SqlServer.xml
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\bin\Release\System.Data.SQLite.xml
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\bin\Release\System.Data.SQLite.dll.config
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\MainWindow.baml
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\windows\AddCategory.baml
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\windows\AddDish.baml
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\windows\AddIngredient.baml
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\windows\DishDetails.baml
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\windows\FindDish.baml
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\windows\IngredientsToDishesWindow.baml
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\RevCookBook.g.resources
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\RevCookBook.Properties.Resources.resources
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\RevCookBook.csproj.GenerateResource.Cache
+E:\Dysk Google\Visual\RevCookBook 2\Reverse-Cookbook\RevCookBook\obj\Release\RevCookBook.csproj.CoreCompileInputs.cache

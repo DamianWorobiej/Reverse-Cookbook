@@ -123,11 +123,16 @@ namespace RevCookBook.View_Models
                     Amount = null;
                     IngredientsSearch = null;
                 }
-                else throw new Exception("Należy zaznaczyć składnik, aby dodać go do dania!");
+                else throw new Exception("Należy zaznaczyć składnik, aby dodać go do dania!"); //length 49
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                if (e.InnerException != null)
+                {
+                    ErrorLogHandler.SaveErrorToLog(e);
+                    MessageBox.Show("Błąd dodawania składnika do dania! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+                }
+                else MessageBox.Show(e.Message);
             }
         }
 
@@ -145,7 +150,12 @@ namespace RevCookBook.View_Models
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                if (e.InnerException != null)
+                {
+                    ErrorLogHandler.SaveErrorToLog(e);
+                    MessageBox.Show("Błąd usuwania składnika z dania! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+                }
+                else MessageBox.Show(e.Message);
             }
         }
 
@@ -200,7 +210,12 @@ namespace RevCookBook.View_Models
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Błąd aktualizacji dania");
+                if (e.InnerException != null)
+                {
+                    ErrorLogHandler.SaveErrorToLog(e);
+                    MessageBox.Show("Błąd aktualizacji dania! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+                }
+                else MessageBox.Show(e.Message, "Błąd aktualizacji dania");
             }
         }
 
@@ -245,7 +260,12 @@ namespace RevCookBook.View_Models
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Błąd dodawania dania");
+                if (e.InnerException != null)
+                {
+                    ErrorLogHandler.SaveErrorToLog(e);
+                    MessageBox.Show("Błąd dodawania dania! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+                }
+                else MessageBox.Show(e.Message, "Błąd dodawania dania");
             }
         }
 
@@ -274,27 +294,35 @@ namespace RevCookBook.View_Models
 
         public void FindIngredientsWithSetName(string name)
         {
-            ingredientsSearch = name;
-            IngredientsList.Clear();
-
-            if (name == null || name == "")
+            try
             {
-                var newIngredientsList = ih.GetObservable();
-                foreach (var ingredient in newIngredientsList)
-                {
-                    IngredientsList.Add(ingredient);
-                }
-            }
-            else
-            {
-                var newIngredientsList = ih.GetObservableOfIngredientsWithSetName(name);
+                ingredientsSearch = name;
+                IngredientsList.Clear();
 
-                foreach (var ingredient in newIngredientsList)
+                if (name == null || name == "")
                 {
-                    IngredientsList.Add(ingredient);
+                    var newIngredientsList = ih.GetObservable();
+                    foreach (var ingredient in newIngredientsList)
+                    {
+                        IngredientsList.Add(ingredient);
+                    }
                 }
+                else
+                {
+                    var newIngredientsList = ih.GetObservableOfIngredientsWithSetName(name);
+
+                    foreach (var ingredient in newIngredientsList)
+                    {
+                        IngredientsList.Add(ingredient);
+                    }
+                }
+                RemoveIngredientsIfInDish();
             }
-            RemoveIngredientsIfInDish();
+            catch (Exception e)
+            {
+                ErrorLogHandler.SaveErrorToLog(e);
+                MessageBox.Show("Wystąpił błąd podczas szukania składników! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+            }
         }
 
         private void RemoveIngredientsIfInDish()

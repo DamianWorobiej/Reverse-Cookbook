@@ -72,7 +72,10 @@ namespace RevCookBook.View_Models
                         new DishDetails(selectedItem).ShowDialog();
                     }
                     catch (Exception e)
-                    { MessageBox.Show(e.Message); }
+                    {
+                        ErrorLogHandler.SaveErrorToLog(e);
+                        MessageBox.Show(e.Message);
+                    }
                     break;
                 case 1:
                     var temp = new AddDish(selectedItem).ShowDialog();
@@ -89,7 +92,8 @@ namespace RevCookBook.View_Models
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show(e.Message, "Problem z usuwaniem dania!");
+                        ErrorLogHandler.SaveErrorToLog(e);
+                        MessageBox.Show("Wystąpił błąd podczas usuwania dania! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:", "Problem z usuwaniem dania!");
                     }
                     break;
                 default:
@@ -99,34 +103,42 @@ namespace RevCookBook.View_Models
 
         public void FindItemsWithSetName(string name)
         {
-            nameSearch = name;
-            if (!vegan)
+            try
             {
-                if (name == null) Collection = dh.GetObservable();
+                nameSearch = name;
+                if (!vegan)
+                {
+                    if (name == null) Collection = dh.GetObservable();
+                    else
+                    {
+                        var newCollection = dh.GetObservableOfDishesWithSetNames(name);
+                        Collection.Clear();
+
+                        foreach (var item in newCollection)
+                        {
+                            Collection.Add(item);
+                        }
+                    }
+                }
                 else
                 {
-                    var newCollection = dh.GetObservableOfDishesWithSetNames(name);
-                    Collection.Clear();
-
-                    foreach (var item in newCollection)
+                    if (name == null || name == "") Collection = dh.GetVeganObservable();
+                    else
                     {
-                        Collection.Add(item);
+                        var newCollection = dh.GetObservableOfVeganDishesWithSetNames(name);
+                        Collection.Clear();
+
+                        foreach (var item in newCollection)
+                        {
+                            Collection.Add(item);
+                        }
                     }
                 }
             }
-            else
+            catch (Exception e)
             {
-                if (name == null || name == "") Collection = dh.GetVeganObservable();
-                else
-                {
-                    var newCollection = dh.GetObservableOfVeganDishesWithSetNames(name);
-                    Collection.Clear();
-
-                    foreach (var item in newCollection)
-                    {
-                        Collection.Add(item);
-                    }
-                }
+                ErrorLogHandler.SaveErrorToLog(e);
+                MessageBox.Show("Wystąpił błąd podczas wyszukiwania dań! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:", "Błąd wyszukiwania");
             }
             
         }

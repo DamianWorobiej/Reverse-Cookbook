@@ -10,9 +10,13 @@ Dalszy rozwój
 - dodawanie dania - edycja iloœci sk³adnika w samym LV
 - osobna kolekcja i LV z wybranymi sk³adnikami w g³ównej funkcjonalnoœci -> wyszukiwanie po nazwie mo¿e usun¹æ zaznaczone sk³adniki
 
+- personalna lista
+- zapisywane ustawienia
+- komunikacja z baz¹ danych na osobnym w¹tku
+
 - wiêksze odseparowanie widoku od view model - g³ównie metody
 
-Do V 1.11
+Do V 1.12
 - wyszukiwanie wegañskich potraw
 - implementacja wyszukiwania dañ bez laktozy
 - zamkniêcie okna po aktualizacjii dania

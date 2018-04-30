@@ -68,7 +68,12 @@ namespace RevCookBook.View_Models
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Błąd dodawania składnika");
+                if (e.InnerException != null)
+                {
+                    ErrorLogHandler.SaveErrorToLog(e);
+                    MessageBox.Show("Błąd dodawania składnika! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+                }
+                else MessageBox.Show(e.Message, "Błąd dodawania składnika");
             }
         }
         
@@ -89,7 +94,12 @@ namespace RevCookBook.View_Models
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Błąd altualizacji składnika");
+                if (e.InnerException != null)
+                {
+                    ErrorLogHandler.SaveErrorToLog(e);
+                    MessageBox.Show("Błąd uaktualaniania składnika! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+                }
+                else MessageBox.Show(e.Message, "Błąd altualizacji składnika");
             }
         }
 
@@ -110,24 +120,32 @@ namespace RevCookBook.View_Models
 
         public void FindCategoriesWithSetName(string name)
         {
-            Collection.Clear();
-
-            if (name == null || name == "")
+            try
             {
-                var newCollection = ch.GetObservable();
-                foreach (var ingredient in newCollection)
+                Collection.Clear();
+
+                if (name == null || name == "")
                 {
-                    Collection.Add(ingredient);
+                    var newCollection = ch.GetObservable();
+                    foreach (var ingredient in newCollection)
+                    {
+                        Collection.Add(ingredient);
+                    }
+                }
+                else
+                {
+                    var newCollection = ch.GetObservableOfCategoriesWithSetName(name);
+
+                    foreach (var ingredient in newCollection)
+                    {
+                        Collection.Add(ingredient);
+                    }
                 }
             }
-            else
+            catch (Exception e)
             {
-                var newCollection = ch.GetObservableOfCategoriesWithSetName(name);
-
-                foreach (var ingredient in newCollection)
-                {
-                    Collection.Add(ingredient);
-                }
+                ErrorLogHandler.SaveErrorToLog(e);
+                MessageBox.Show("Wystąpił błąd podczas szukania kategorii! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
             }
         }
 

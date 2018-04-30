@@ -43,16 +43,22 @@ namespace RevCookBook.View_Models
         {
             try
             {
-                if (name != "")
+                if (name != "" && name != null)
                 {
                     ch.InsertData(name);
                     RCookBookDB.okna.AddCategory.CloseAddCategoryWindow();
                 }
-                else throw new Exception("Należy wpisać nazwę kategorii!");
+                else throw new Exception("Należy wpisać nazwę kategorii!"); //length 29
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Błąd dodawania kategorii");
+
+                if (e.InnerException != null)
+                {
+                    ErrorLogHandler.SaveErrorToLog(e);
+                    MessageBox.Show("Błąd dodawania kategorii! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+                }
+                else MessageBox.Show(e.Message, "Błąd dodawania kategorii");
             }
         }
 
@@ -69,7 +75,12 @@ namespace RevCookBook.View_Models
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Błąd uaktualniania kategorii");
+                if (e.InnerException != null)
+                {
+                    ErrorLogHandler.SaveErrorToLog(e);
+                    MessageBox.Show("Błąd uaktualniania kategorii! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+                }
+                else MessageBox.Show(e.Message, "Błąd uaktualniania kategorii");
             }
         }
     }

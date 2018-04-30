@@ -62,81 +62,105 @@ namespace RevCookBook.View_Models
 
         private void SelectedIngredientChanged()
         {
-            if (selectedIngredientsList.Contains(selectedIngredient)) selectedIngredientsList.Remove(selectedIngredient);
-            else selectedIngredientsList.Add(selectedIngredient);
-            string Hh = null;
-            foreach (var item in selectedIngredientsList)
+            try
             {
-                Hh += item.Name + ", ";
+                if (selectedIngredientsList.Contains(selectedIngredient)) selectedIngredientsList.Remove(selectedIngredient);
+                else selectedIngredientsList.Add(selectedIngredient);
+                string Hh = null;
+                foreach (var item in selectedIngredientsList)
+                {
+                    Hh += item.Name + ", ";
+                }
+                MessageBox.Show(Hh);
             }
-            MessageBox.Show(Hh);
+            catch (Exception e)
+            {
+                ErrorLogHandler.SaveErrorToLog(e);
+                MessageBox.Show("Wystąpił błąd! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
+            }
         }
 
         public void UpdateDishes(List<Ingredient> ingList)
         {
-            Dishes.Clear();
-            if (state)
+            try
             {
-                if (ingList.Count() > 0)
+                Dishes.Clear();
+                if (state)
                 {
-                    var Hh = dh.GetDishesWithAllSelectedIngredients(ingList);
-                    foreach (var dish in Hh)
+                    if (ingList.Count() > 0)
                     {
-                        Dishes.Add(dish);
+                        var Hh = dh.GetDishesWithAllSelectedIngredients(ingList);
+                        foreach (var dish in Hh)
+                        {
+                            Dishes.Add(dish);
+                        }
+                    }
+
+                    else
+                    {
+                        var Hh = dh.GetObservable();
+                        foreach (var dish in Hh)
+                        {
+                            Dishes.Add(dish);
+                        }
                     }
                 }
-
                 else
                 {
-                    var Hh = dh.GetObservable();
-                    foreach (var dish in Hh)
+                    if (ingList.Count() > 0)
                     {
-                        Dishes.Add(dish);
+                        var Hh = dh.GetDishesWithSelectedIngredients(ingList);
+                        foreach (var dish in Hh)
+                        {
+                            Dishes.Add(dish);
+                        }
+                    }
+
+                    else
+                    {
+                        var Hh = dh.GetObservable();
+                        foreach (var dish in Hh)
+                        {
+                            Dishes.Add(dish);
+                        }
                     }
                 }
             }
-            else
+            catch (Exception e)
             {
-                if (ingList.Count() > 0)
-                {
-                    var Hh = dh.GetDishesWithSelectedIngredients(ingList);
-                    foreach (var dish in Hh)
-                    {
-                        Dishes.Add(dish);
-                    }
-                }
-
-                else
-                {
-                    var Hh = dh.GetObservable();
-                    foreach (var dish in Hh)
-                    {
-                        Dishes.Add(dish);
-                    }
-                }
+                ErrorLogHandler.SaveErrorToLog(e);
+                MessageBox.Show("Wystąpił błąd! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
             }
         }
 
         public void FindIngredientsWithSetName(string name)
         {
-            Ingredients.Clear();
-
-            if (name == null || name == "")
+            try
             {
-                var newIngredients = ih.GetObservable();
-                foreach (var ingredient in newIngredients)
+                Ingredients.Clear();
+
+                if (name == null || name == "")
                 {
-                    Ingredients.Add(ingredient);
+                    var newIngredients = ih.GetObservable();
+                    foreach (var ingredient in newIngredients)
+                    {
+                        Ingredients.Add(ingredient);
+                    }
+                }
+                else
+                {
+                    var newIngredients = ih.GetObservableOfIngredientsWithSetName(name);
+
+                    foreach (var ingredient in newIngredients)
+                    {
+                        Ingredients.Add(ingredient);
+                    }
                 }
             }
-            else
+            catch (Exception e)
             {
-                var newIngredients = ih.GetObservableOfIngredientsWithSetName(name);
-
-                foreach (var ingredient in newIngredients)
-                {
-                    Ingredients.Add(ingredient);
-                }
+                ErrorLogHandler.SaveErrorToLog(e);
+                MessageBox.Show("Wystąpił błąd! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:");
             }
         }
 

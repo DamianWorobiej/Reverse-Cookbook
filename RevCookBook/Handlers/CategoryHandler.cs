@@ -23,17 +23,26 @@ namespace RevCookBook.Handlers
 
         protected override void RefreshCollection()
         {
-            CatList = new List<Category>();
-
-            var query = "select * from Categories";
-            
-
-            var Hh = GetTableData(query);
-            foreach (var item in Hh)
+            try
             {
-                CatList.Add(new Category(item[1], Convert.ToInt32(item[0])));
+                CatList = new List<Category>();
+
+                var query = "select * from Categories";
+
+
+                var Hh = GetTableData(query);
+                foreach (var item in Hh)
+                {
+                    CatList.Add(new Category(item[1], Convert.ToInt32(item[0])));
+                }
+                CatList.Sort((x, y) => string.Compare(x.Name, y.Name));
             }
-            CatList.Sort((x, y) => string.Compare(x.Name, y.Name));
+            catch (Exception e)
+            {
+                throw new Exception(e.Message, new Exception("Metoda błędu: CategoryHandler.RefreshCollection()"));
+                //ErrorLogHandler.SaveErrorToLog(e);
+                //MessageBox.Show("Błąd odświeżania kolekcji!");
+            }
         }
 
 
@@ -42,6 +51,7 @@ namespace RevCookBook.Handlers
         {
             try
             {
+                //throw new Exception("Działa");
                 if (verifyExistance(new Category((string)input,0)))
                 {
                     string data = (string)input;
@@ -53,7 +63,8 @@ namespace RevCookBook.Handlers
             }
             catch (Exception e)
             {
-                throw new Exception("Błąd z dodawaniem kategorii: " + e.Message);
+                //throw new Exception("Błąd dodawania kategorii: " + e.Message);
+                throw new Exception(e.Message, new Exception("Metoda błędu: CategoryHandler.InsertData()"));
             }
         }
 
@@ -72,7 +83,8 @@ namespace RevCookBook.Handlers
             }
             catch (Exception e)
             {
-                throw new Exception("Błąd aktualizacji kategorii: " + e.Message);
+                //throw new Exception("Błąd aktualizacji kategorii: " + e.Message);
+                throw new Exception(e.Message, new Exception("Metoda błędu: CategoryHandler.UpdateData()"));
             }
         }
 
@@ -109,54 +121,82 @@ namespace RevCookBook.Handlers
 
         protected override List<string[]> GetTableData(string query)
         {
-            Connect();
-            List<string[]> output = new List<string[]>();
-            var command = new SQLiteCommand(query, conn);
-            var reader = command.ExecuteReader();
-            while (reader.Read()) output.Add(new string[] { reader["ID"].ToString(), reader["Name"].ToString() });
+            try
+            {
+                Connect();
+                List<string[]> output = new List<string[]>();
+                var command = new SQLiteCommand(query, conn);
+                var reader = command.ExecuteReader();
+                while (reader.Read()) output.Add(new string[] { reader["ID"].ToString(), reader["Name"].ToString() });
 
-            CloseConnection();
-            return output;
+                CloseConnection();
+                return output;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message, new Exception("Save"));
+            }
         }
 
         public ObservableCollection<Category> GetObservable()
         {
-            RefreshCollection();
-            var output = new ObservableCollection<Category>();          
-
-            foreach (var item in CatList)
+            try
             {
-                output.Add(item);
-            }
+                RefreshCollection();
+                var output = new ObservableCollection<Category>();
 
-            return output;
+                foreach (var item in CatList)
+                {
+                    output.Add(item);
+                }
+
+                return output;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message, new Exception("Save"));
+            }
         }
 
         public ObservableCollection<Category> GetCategoriesWithSetNames(string input)
         {
-            RefreshCollection();
-            var output = new ObservableCollection<Category>();
-
-            foreach (var cat in CatList)
+            try
             {
-                if (cat.Name.Contains(input)) output.Add(cat);
+                RefreshCollection();
+                var output = new ObservableCollection<Category>();
 
+                foreach (var cat in CatList)
+                {
+                    if (cat.Name.Contains(input)) output.Add(cat);
+
+                }
+
+                return output;
             }
-
-            return output;
+            catch (Exception e)
+            {
+                throw new Exception(e.Message, new Exception("Save"));
+            }
         }
 
         public ObservableCollection<Category> GetObservableOfCategoriesWithSetName(string input)
         {
-            RefreshCollection();
-            var output = new ObservableCollection<Category>();
-
-            foreach (var cat in CatList)
+            try
             {
-                if (cat.Name.Contains(input)) output.Add(cat);
-            }
+                RefreshCollection();
+                var output = new ObservableCollection<Category>();
 
-            return output;
+                foreach (var cat in CatList)
+                {
+                    if (cat.Name.Contains(input)) output.Add(cat);
+                }
+
+                return output;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message, new Exception("Save"));
+            }
         }
 
         #endregion

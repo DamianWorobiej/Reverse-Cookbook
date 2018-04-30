@@ -1,3 +1,7 @@
+v1.11
+
+-Dodano obs³ugê raportów b³êdów
+
 v 1.1
 
 -Dodano obs³ugê baz danych

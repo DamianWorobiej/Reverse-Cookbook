@@ -12,7 +12,7 @@ namespace RevCookBook.Handlers
 {
     public class DBHandler
     {
-        private static string DbConnectionString = @"Data Source=Data/RCBookDB.s3db;Version=3;";
+        private static string DbConnectionString = @"Data Source=" + Paths.Database + ";Version=3;";
         protected static SQLiteConnection conn = new SQLiteConnection(DbConnectionString);
 
         protected void Connect()
@@ -24,36 +24,53 @@ namespace RevCookBook.Handlers
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                throw new Exception(ex.Message, new Exception("Save DBH"));
+                //ErrorLogHandler.SaveErrorToLog(ex);
             }
         }
 
         public static SQLiteDataReader GetReader(string query)
         {
-            var command = new SQLiteCommand(query, conn);
-            return command.ExecuteReader();
+            try
+            {
+                var command = new SQLiteCommand(query, conn);
+                return command.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message, new Exception("Save DBH"));
+            }
         }
 
         
 
         protected void CloseConnection()
         {
-            conn.Close();
+            try {conn.Close(); }
+            catch (Exception e) { throw new Exception(e.Message, new Exception("Save DBH")); }
         }
 
         
 
         protected void ExecuteNonSelectQuery(string query)
         {
-            Connect();
-            var command = new SQLiteCommand(query, conn);
-            command.ExecuteNonQuery();
-            CloseConnection();
+            try
+            {
+                Connect();
+                var command = new SQLiteCommand(query, conn);
+                command.ExecuteNonQuery();
+                CloseConnection();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message, new Exception("Save DBH"));
+            }
 
         }
 
 
-        #region Virtuals // lepiej by było skorzystać z interfejsu
+        //Chyba lepiej pomyśleć o jakiejś klasie wirtualnej po drodze
+        #region Virtuals
 
         public virtual void UpdateData(object input)
         {

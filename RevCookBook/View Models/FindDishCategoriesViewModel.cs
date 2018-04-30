@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace RevCookBook.View_Models
 {
@@ -38,17 +39,24 @@ namespace RevCookBook.View_Models
 
         public void FindItemsWithSetName(string name)
         {
-
-            if (name == null) Collection = ch.GetObservable();
-            else
+            try
             {
-                var newCollection = ch.GetObservableOfCategoriesWithSetName(name);
-                Collection.Clear();
-
-                foreach (var item in newCollection)
+                if (name == null) Collection = ch.GetObservable();
+                else
                 {
-                    Collection.Add(item);
+                    var newCollection = ch.GetObservableOfCategoriesWithSetName(name);
+                    Collection.Clear();
+
+                    foreach (var item in newCollection)
+                    {
+                        Collection.Add(item);
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+                ErrorLogHandler.SaveErrorToLog(e);
+                MessageBox.Show("Wystąpił błąd podczas wyszukiwania kategorii! Raport błędu został zapisany. Proszę wysłać go do developera, bardzo pomoże to w rozwoju programu (:", "Błąd wyszukiwania kategorii");
             }
            
         }
